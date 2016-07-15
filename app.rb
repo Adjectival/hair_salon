@@ -27,18 +27,18 @@ post '/new_stylist_form' do
 end
 get('/delete') do
   @stylists = Stylist.all()
-  erb(:delete)
+  erb :delete
 end
 post('/:id/delete') do
   new_stylist = Stylist.new({:id => params.fetch('id')})
   new_stylist.save()
-  redirect to ('/delete')
+  redirect to '/delete'
 end
 delete('/:id/delete') do
   stylist = Stylist.find(params.fetch('id').to_i())
   stylist.delete()
   @stylists = Stylist.all()
-  redirect to('/delete')
+  redirect to '/stylist'
 end
 
 get '/client' do

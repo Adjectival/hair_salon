@@ -1,8 +1,8 @@
 <h2>Current Stylists in Your Hair Salon</h2>
 <% if @stylists.any?() %>
-  <ul id="stylistInfo">
+  <ul>
     <% @stylists.each() do |stylist| %>
-      <li>#<strong><%= stylist.id %> : <%= stylist.name %> </strong>||<em><%= stylist.contact %></em></li>
+      <li>#<strong><%= stylist.id %> : <%= stylist.name %> </strong> || <em><%= stylist.contact %></em></li>
     <% end %>
   </ul>
 <% else %>

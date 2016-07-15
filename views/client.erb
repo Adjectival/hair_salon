@@ -1,6 +1,6 @@
 <h2>Current Clients of Your Hair Salon</h2>
 <% if @clients.any?() %>
-  <ul id="clientInfo">
+  <ul>
     <% @clients.each() do |client| %>
       <li><strong><%= client.name %> </strong>||<em><%= client.contact %></em> || <%= client.stylist_id %></li>
     <% end %>
@@ -14,3 +14,4 @@
 <div>
   <a href="/">Back to Main</a>
 </div>
+<!--  MAKE SURE TO REPACE client.stylist_id WITH THE stylist.name -->

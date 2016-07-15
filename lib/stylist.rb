@@ -19,7 +19,6 @@ class Stylist
     stylists
   end
 
-
   define_singleton_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
     Stylist.delete()
