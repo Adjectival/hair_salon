@@ -1,4 +1,4 @@
-# Hair Salon :scissors: + :haircut: = :moneybag:
+# Your Hair Salon :scissors: + :haircut: = :moneybag:
 ### By _Alexander Jacks_
 _an Epicodus Project, July 2016_
 

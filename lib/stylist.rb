@@ -19,12 +19,23 @@ class Stylist
     stylists
   end
 
+
+  define_singleton_method(:delete) do
+    DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
+    Stylist.delete()
+  end
+
   define_method(:save) do
     result = DB.exec("INSERT INTO stylists (name, contact) VALUES ('#{@name}','#{@contact}') RETURNING id;")
-    @id = result.first.fetch('id').to_i()
+    @id = result.first().fetch('id').to_i()
   end
   define_method(:==) do |other|
     (self.id() == other.id()&&(self.name() == other.name()&&(self.contact() == other.contact())))
+  end
+
+  define_singleton_method(:find) do |id|
+    result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
+    id = result.first().fetch("id")
   end
 
 end
