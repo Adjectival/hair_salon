@@ -23,4 +23,26 @@ describe Stylist do
     end
   end
 
+  describe '#id' do
+    it "returns the id of the stylist" do
+    test_stylist = Stylist.new({:name => 'Opal Essence', :contact => '8089998989'})
+    test_stylist.save()
+    expect(test_stylist.id.class).to(eq(Fixnum))
+    end
+  end
+
+  describe '#name' do
+    it "returns the stylist's name" do
+    test_stylist = Stylist.new({:name => 'Opal Essence', :contact => '8089998989'})
+    expect(test_stylist.name()).to(eq('Opal Essence'))
+    end
+  end
+
+  describe '#contact' do
+    it "returns the stylist's contact information" do
+      test_stylist = Stylist.new({:name => 'Opal Essence', :contact => '8089998989'})
+      expect(test_stylist.contact()).to(eq('8089998989'))
+    end
+  end
+
 end
