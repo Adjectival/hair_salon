@@ -1,0 +1,10 @@
+<h2>Current Clients of Your Hair Salon</h2>
+<% if @clients.any?() %>
+  <ul id="clientInfo">
+    <% @clients.each() do |client| %>
+      <li><strong><%= client.name %> </strong>||<em><%= client.contact %></em> || <%= client.stylist_id %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>You have no clients!</h2>
+<% end %>
