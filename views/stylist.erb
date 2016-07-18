@@ -1,19 +1,23 @@
-<h2>Current Stylists in Your Hair Salon</h2>
-<% if @stylists.any?() %>
+<h1><%= @stylist.name() %></h1>
+
+<form action="/stylist/<%= stylist.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" id="delete" class="btn-sm btn btn-danger">
+  <span class="glyphicon glyphicon-minus"></span>
+  </button></form>
+
   <ul>
-    <% @stylists.each() do |stylist| %>
-      <li>#<strong><%= stylist.id %> : <%= stylist.name %> </strong> || <em><%= stylist.contact %></em></li>
-    <% end %>
+    <li>ID# <%= @stylist.id() %></li>
+    <li>Name: <%= @stylist.name() %></li>
+    <li>Contact info: <%= @stylist.contact() %></li>
   </ul>
-<% else %>
-  <h2>You have no employees!</h2>
-<% end %>
-<p>
-  <a href="/new_stylist_form"><h2>Add a New Stylist!</h2></a>
-</p>
-<p>
-  <a href="/delete"><h2>Remove a Stylist...</h2></a>
-</p>
+
 <div>
-  <a href="/">Back to Main</a>
+  <a href="/stylists">Remove this stylist from the database!</a>
+</div>
+
+<div>
+  <ul>
+    <li><a href="/stylists">Back to All Stylists</a></li>
+  </ul>
 </div>

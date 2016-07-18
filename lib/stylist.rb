@@ -32,9 +32,14 @@ class Stylist
     (self.id() == other.id()&&(self.name() == other.name()&&(self.contact() == other.contact())))
   end
 
-  define_singleton_method(:find) do |id|
-    result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
-    id = result.first().fetch("id")
+  define_singleton_method(:find) do |tada|
+    match = nil
+    Stylist.all.each() do |stylist|
+      if stylist.id() == (tada)
+        match = stylist
+      end
+    end
+    match
   end
 
 end

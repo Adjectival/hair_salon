@@ -10,10 +10,11 @@ DB = PG.connect({:dbname => 'hair_salon_test'})
 get '/' do
   erb :index
 end
-get '/stylist' do
+get '/stylists' do
   @stylists = Stylist.all()
-  erb :stylist
+  erb :stylists
 end
+
 get '/new_stylist_form' do
   erb :new_stylist_form
 end
@@ -23,22 +24,19 @@ post '/new_stylist_form' do
   stylist = Stylist.new({:name => name, :contact => contact})
   stylist.save()
   @stylists = Stylist.all()
+  redirect to '/stylists'
+  erb :stylists
+end
+
+get '/stylist/:id' do
+  @stylist = Stylist.find(params.fetch('id').to_i())
   erb :stylist
 end
-get('/delete') do
+delete '/stylist/:id' do
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  @stylist.delete()
   @stylists = Stylist.all()
-  erb :delete
-end
-post('/:id/delete') do
-  new_stylist = Stylist.new({:id => params.fetch('id')})
-  new_stylist.save()
-  redirect to '/delete'
-end
-delete('/:id/delete') do
-  stylist = Stylist.find(params.fetch('id').to_i())
-  stylist.delete()
-  @stylists = Stylist.all()
-  redirect to '/stylist'
+  erb :stylist
 end
 
 get '/client' do
