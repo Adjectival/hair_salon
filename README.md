@@ -5,37 +5,34 @@ _an Epicodus Project, July 2016_
 ## Description
 Website built to help a small hair salon manage database of clients and stylists. User can add and remove new clients and/or stylists and can edit contact information and names. User can
 
-### See it Now
-_URL for gh-pages_
 
-## Specifications
+## Setup
+Download this repository.
+```
+git clone https://github.com/Adjectival/hair_salon
+```
 
-#### _A user can add a word to the main list, which will save to the webpage._
+In Terminal, run bundler:
+```
+bundle
+```
 
-  User input:
-   *
-   *
+Then open PSQL and:
+```
+CREATE DATABASE hair_salon;
+CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, contact varchar);
+CREATE TABLE clients (id serial PRIMARY KEY, name varchar, contact varchar, stylist_id int);
+```
 
-  Website displays:
-   *
-   *
+#### Specifications
 
-#### _When a user views word definitions, she or he is able to submit custom definitions which will save to the webpage._
-
-  User input:
-   *
-   *
-
-  Website displays:
-   *
-   *
-
-
-
+Salon management can:
+- view, add, update, delete stylists
+- view, add, update, delete clients
+- assign clients to a stylist
 
 
-### Support and contact details
-
+### Support and contact
 _Contact alexd (dot) jacks (at) gmail (dot) com with questions regarding this software. Check out some of these resources to understand the technologies._
 
 1. learnhowtoprogram.com
@@ -44,11 +41,13 @@ _Contact alexd (dot) jacks (at) gmail (dot) com with questions regarding this so
 4. getbootstrap.com
 
 ## Technologies Used
-
-_PostgreSQL, Ruby 2.2, Sinatra/WEBrick, Bootstrap, MVC architecture_
+- PostgreSQL
+- Ruby 2.2
+- Sinatra/WEBrick
+- Bootstrap
+- MVC architecture
 
 ### Legal
-
 _This software is available under the MIT license and can be modified and used for any purposes without express permission of the author._
 
 Copyright (c) 2016 **_Alexander Jacks_**
