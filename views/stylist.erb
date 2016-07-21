@@ -1,11 +1,5 @@
 <h1><%= @stylist.name() %></h1>
 
-<form action="/stylist/<%= stylist.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit" id="delete" class="btn-sm btn btn-danger">
-  <span class="glyphicon glyphicon-minus"></span>
-  </button></form>
-
   <ul>
     <li>ID# <%= @stylist.id() %></li>
     <li>Name: <%= @stylist.name() %></li>
@@ -13,7 +7,10 @@
   </ul>
 
 <div>
-  <a href="/stylists">Remove this stylist from the database!</a>
+  <form action="/stylists/<%= @stylist.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" id="delete" class="btn-sm btn btn-danger">Remove <%= @stylist.name() %> from Your Hair Salon!
+    </button></form>
 </div>
 
 <div>

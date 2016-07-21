@@ -45,4 +45,15 @@ describe Stylist do
     end
   end
 
+  describe '#delete' do
+    it "deletes the stylist from the app" do
+      test_stylist1 = Stylist.new({:name => 'Opal Essence', :contact => '8089998989'})
+      test_stylist1.save()
+      test_stylist2 = Stylist.new({:name => 'Jammin', :contact => 'barkless@jammin.jm'})
+      test_stylist2.save()
+      test_stylist1.delete()
+      expect(Stylist.all()).to(eq([test_stylist2]))
+    end
+  end
+
 end

@@ -19,9 +19,8 @@ class Stylist
     stylists
   end
 
-  define_singleton_method(:delete) do
+  define_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
-    Stylist.delete()
   end
 
   define_method(:save) do
@@ -33,13 +32,13 @@ class Stylist
   end
 
   define_singleton_method(:find) do |tada|
-    match = nil
+    found_stylist = nil
     Stylist.all.each() do |stylist|
       if stylist.id() == (tada)
-        match = stylist
+        found_stylist = stylist
       end
     end
-    match
+    found_stylist
   end
 
 end

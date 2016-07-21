@@ -3,8 +3,7 @@
 _an Epicodus Project, July 2016_
 
 ## Description
-Website built to help a small hair salon manage database of clients and stylists. User can add and remove new clients and/or stylists and can edit contact information and names. User can
-
+Website built to help a small hair salon manage database of clients and stylists.
 
 ## Setup
 Download this repository.
@@ -12,12 +11,12 @@ Download this repository.
 git clone https://github.com/Adjectival/hair_salon
 ```
 
-In Terminal, run bundler:
+In Terminal, run Ruby's bundler:
 ```
 bundle
 ```
 
-Then open PSQL and:
+Then open your SQL SERVER and:
 ```
 CREATE DATABASE hair_salon;
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, contact varchar);
@@ -25,7 +24,6 @@ CREATE TABLE clients (id serial PRIMARY KEY, name varchar, contact varchar, styl
 ```
 
 #### Specifications
-
 Salon management can:
 - view, add, update, delete stylists
 - view, add, update, delete clients
@@ -44,8 +42,7 @@ _Contact alexd (dot) jacks (at) gmail (dot) com with questions regarding this so
 - PostgreSQL
 - Ruby 2.2
 - Sinatra/WEBrick
-- Bootstrap
-- MVC architecture
+- Bootstrap 3
 
 ### Legal
 _This software is available under the MIT license and can be modified and used for any purposes without express permission of the author._

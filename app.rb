@@ -25,18 +25,17 @@ post '/new_stylist_form' do
   stylist.save()
   @stylists = Stylist.all()
   redirect to '/stylists'
-  erb :stylists
 end
 
-get '/stylist/:id' do
+get '/stylists/:id' do
   @stylist = Stylist.find(params.fetch('id').to_i())
   erb :stylist
 end
-delete '/stylist/:id' do
+delete '/stylists/:id' do
+  @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
   @stylist.delete()
-  @stylists = Stylist.all()
-  erb :stylist
+  redirect to '/stylists'
 end
 
 get '/client' do
