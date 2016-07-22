@@ -62,6 +62,7 @@ post '/clients/new' do
 end
 
 get '/clients/:id' do
+  @clients = Client.all()
   @client = Client.find(params.fetch('id').to_i())
   erb :client
 end
@@ -75,7 +76,6 @@ end
 get '/stylists/:id/update' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
-  @clients = Client.all()
   erb :update_stylist_form
 end
 patch '/stylists/:id/update' do
@@ -87,14 +87,20 @@ patch '/stylists/:id/update' do
   redirect to '/stylists'
 end
 
-
-get '/client/update' do
+get '/clients/:id/update' do
   @clients = Client.all()
+  @client = Client.find(params.fetch('id').to_i())
   @stylists = Stylist.all()
-  erb :edit_client
+  erb :update_client_form
 end
-patch '/client/update' do
+patch '/clients/:id/update' do
+  @client = Client.find(params.fetch('id').to_i())
   @clients = Client.all()
   @stylists = Stylist.all()
-  erb :edit_client
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  name = params.fetch('name')
+  contact = params.fetch('contact')
+  stylist_id = params.fetch('update_stylist_id')
+  @client.update({:name => name, :contact => contact, :stylist_id => stylist_id})
+  redirect to '/clients'
 end

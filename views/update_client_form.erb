@@ -1,0 +1,38 @@
+  <h1>Update Information for <%= @client.name() %></h1>
+
+  <form action="/clients/<%= @client.id() %>/update" method="post" class="well">
+    <input name="_method" type="hidden" value="patch">
+    <ul>
+      <li>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+      </li>
+      <li>
+        <label for="contact">Contact: </label>
+        <input type="text" name="contact" id="contact">
+      </li>
+      <li>
+        <% if @stylists.any?() %>
+          <select name="update_stylist_id">
+            <% @stylists.each() do |stylist| %>
+            <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
+            <% end %>
+        <% else %>
+          <strong>Please hire a stylist!</strong>
+        <% end %>
+        </select>
+      </li>
+    </ul>
+    <button class="btn-lg btn-primary"type="submit">Update</button>
+  </form>
+
+
+  <form action="/clients/<%= @client.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" id="delete" class="btn-lg btn btn-danger">Delete</button><h2><%= @client.name() %> from Your Hair Salon!</h2>
+  </form>
+  <div>
+    <ul>
+      <li><a class="btn btn-med btn-success" href="/clients">Back to All Clients</a></li>
+    </ul>
+  </div>

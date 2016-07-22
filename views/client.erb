@@ -7,12 +7,12 @@
     <li>Stylist ID: <%= @client.stylist_id() %></li>
   </ul>
 
-<div>
-  <form action="/clients/<%= @client.id() %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit" id="delete" class="btn-lg btn btn-danger">Remove client <%= @client.name() %>
-    </button><br>from Your Hair Salon! They are no longer welcome at YHS.</form>
-</div>
+  <div>
+    <form action="/clients/<%= @client.id() %>/update" method="patch">
+      <input type="hidden" name="_method" value="update">
+      <button type="submit" id="update" class="btn-lg btn btn-info">Edit</button> this Client's info or Stylist</h2>
+      </form>
+  </div>
 
 <div>
   <ul>
