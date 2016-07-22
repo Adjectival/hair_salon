@@ -60,3 +60,14 @@ post '/clients/new' do
   @stylists = Stylist.all()
   erb :clients
 end
+
+get '/clients/:id' do
+  @client = Client.find(params.fetch('id').to_i())
+  erb :client
+end
+delete '/clients/:id' do
+  @clients = Client.all()
+  @client = Client.find(params.fetch('id').to_i())
+  @client.delete()
+  redirect to '/clients'
+end

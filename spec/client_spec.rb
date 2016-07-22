@@ -27,6 +27,17 @@ describe Client do
     end
   end
 
+  describe '#delete' do
+    it "deletes the client from the app" do
+      test_client1 = Client.new({:name => 'No Num Berwon', :contact => '2342342345', :stylist_id => 2})
+      test_client1.save()
+      test_client2 = Client.new({:name => 'After Words', :contact => '10010010@x0x.90', :stylist_id => 2})
+      test_client2.save()
+      test_client1.delete()
+      expect(Client.all()).to(eq([test_client2]))
+    end
+  end
+
   describe('#id') do
     it "returns the id of the client" do
     test_client = Client.new({:name => 'Harshbud Jawns', :contact => 'hbudzj@me.com', :stylist_id => '2'})

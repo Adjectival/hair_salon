@@ -1,0 +1,21 @@
+<h1><%= @client.name() %></h1>
+
+  <ul>
+    <li>ID# <%= @client.id() %></li>
+    <li>Name: <%= @client.name() %></li>
+    <li>Contact info: <%= @client.contact() %></li>
+    <li>Stylist ID: <%= @client.stylist_id() %></li>
+  </ul>
+
+<div>
+  <form action="/clients/<%= @client.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" id="delete" class="btn-lg btn btn-danger">Remove client <%= @client.name() %>
+    </button><br>from Your Hair Salon! They are no longer welcome at YHS.</form>
+</div>
+
+<div>
+  <ul>
+    <li><a class="btn btn-med btn-success" href="/clients">Back to All Clients</a></li>
+  </ul>
+</div>

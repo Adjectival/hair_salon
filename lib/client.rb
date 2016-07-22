@@ -21,6 +21,10 @@ class Client
     clients
   end
 
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
+  end
+
   define_method(:save) do
     result = DB.exec("INSERT INTO clients (name,contact,stylist_id) VALUES ('#{@name}','#{@contact}','#{@stylist_id}') RETURNING id")
     @id = result.first.fetch('id').to_i()
@@ -29,4 +33,14 @@ class Client
     (self.id() == other.id()&&(self.name() == other.name()&&(self.contact() == other.contact())))
   end
 
+  define_singleton_method(:find) do |tada|
+    found_client = nil
+    Client.all.each() do |client|
+      if client.id() == (tada)
+        found_client = client
+      end
+    end
+    found_client
+  end
+  
 end

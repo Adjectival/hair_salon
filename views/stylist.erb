@@ -9,12 +9,12 @@
 <div>
   <form action="/stylists/<%= @stylist.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" id="delete" class="btn-sm btn btn-danger">Remove <%= @stylist.name() %> from Your Hair Salon!
+    <button type="submit" id="delete" class="btn-lg btn btn-danger">Remove <%= @stylist.name() %> from Your Hair Salon!
     </button></form>
 </div>
 
 <div>
   <ul>
-    <li><a class="btn-sm btn btn-success" href="/stylists">Back to All Stylists</a></li>
+    <li><a class="btn btn-med btn-success" href="/stylists">Back to All Stylists</a></li>
   </ul>
 </div>

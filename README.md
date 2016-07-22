@@ -39,7 +39,7 @@ _Contact alexd (dot) jacks (at) gmail (dot) com with questions regarding this so
 4. getbootstrap.com
 
 ## Technologies Used
-- PostgreSQL
+- Postgres
 - Ruby 2.2
 - Sinatra/WEBrick
 - Bootstrap 3
