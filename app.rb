@@ -81,9 +81,12 @@ end
 patch '/stylists/:id/update' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
-  @clients = Client.all()
-redirect to '/stylists'
+  name = params.fetch('name')
+  contact = params.fetch('contact')
+  @stylist.update({:name => name, :contact => contact})
+  redirect to '/stylists'
 end
+
 
 get '/client/update' do
   @clients = Client.all()
