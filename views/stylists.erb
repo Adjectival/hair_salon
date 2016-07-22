@@ -2,16 +2,16 @@
 <% if @stylists.any?() %>
   <ul>
     <% @stylists.each() do |stylist| %>
-      <li><a href="/stylists/<%= stylist.id() %>">#<strong><%= stylist.id %> : <%= stylist.name %> </strong> || <em><%= stylist.contact %></em></a></li>
+      <li><h2><a href="/stylists/<%= stylist.id() %>">#<%= stylist.id %> : <%= stylist.name %>  || <em><%= stylist.contact %></em></a></h2></li>
     <% end %>
   </ul>
 <% else %>
   <h2>You have no employees!</h2>
 <% end %>
 <p>
-  <a href="/new_stylist_form"><h2>Add a New Stylist!</h2></a>
+  <a class="btn btn-lg btn-success" href="/stylists/new">Add a New Stylist!</a>
 </p>
 
 <div>
-  <a href="/">Back to Main</a>
+  <a class="btn btn-lg btn-info" href="/">Back to Main</a>
 </div>

@@ -1,12 +1,17 @@
 <h2>Add a new Stylist</h2>
 
-<form action="/new_stylist_form" method="post">
-  <label for="new_stylist_name">Name/Nickname:</label>
-  <input id="new_stylist_name" name="new_stylist_name" type="text">
-  <label for="new_stylist_contact">Phone OR Email:</label>
-  <input id="new_stylist_contact" name="new_stylist_contact" type="text">
-
+<form action="/stylists/new" method="post" class="well">
+  <ul>
+    <li><label for="new_stylist_name">Name/Nickname:</label>
+    <input id="new_stylist_name" name="new_stylist_name" type="text"></li>
+    <li><label for="new_stylist_contact">Phone OR Email:</label>
+    <input id="new_stylist_contact" name="new_stylist_contact" type="text"></li>
+  </ul>
   <p>
-  <button type="submit" class="btn-lg btn-success">Add Stylist</button>
+  <button type="submit" class="btn btn-lg btn-success">Add Stylist</button>
   </p>
 </form>
+
+<div>
+  <a class="btn btn-lg btn-info" href="/">Back to Main</a>
+</div>

@@ -15,10 +15,10 @@ get '/stylists' do
   erb :stylists
 end
 
-get '/new_stylist_form' do
+get '/stylists/new' do
   erb :new_stylist_form
 end
-post '/new_stylist_form' do
+post '/stylists/new' do
   name = params.fetch('new_stylist_name')
   contact = params.fetch('new_stylist_contact')
   stylist = Stylist.new({:name => name, :contact => contact})
@@ -38,19 +38,25 @@ delete '/stylists/:id' do
   redirect to '/stylists'
 end
 
-get '/client' do
+get '/clients' do
   @clients = Client.all()
-  erb :client
+  @stylists = Stylist.all()
+  erb :clients
 end
-get '/new_client_form' do
+
+get '/clients/new' do
+  @clients = Client.all()
+  @stylists = Stylist.all()
   erb :new_client_form
 end
-post '/new_client_form' do
+
+post '/clients/new' do
   name = params.fetch('new_client_name')
   contact = params.fetch('new_client_contact')
   stylist_id = params.fetch('new_client_stylist_id')
   client = Client.new({:name => name, :contact => contact, :stylist_id => stylist_id})
   client.save()
   @clients = Client.all()
-  erb :client
+  @stylists = Stylist.all()
+  erb :clients
 end
