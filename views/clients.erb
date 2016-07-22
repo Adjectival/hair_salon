@@ -1,8 +1,8 @@
 <h2>Current Clients of Your Hair Salon</h2>
-<% if @clients.any?() %>
+<% if @clients.any?() && @stylists.any?() %>
   <ul>
     <% @clients.each() do |client| %>
-      <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> || <em><%= client.contact() %></em> || <%= client.stylist_id() %></a></li>
+      <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
     <% end %>
   </ul>
 <% else %>

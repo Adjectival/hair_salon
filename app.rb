@@ -71,3 +71,27 @@ delete '/clients/:id' do
   @client.delete()
   redirect to '/clients'
 end
+
+get '/stylists/:id/update' do
+  @stylists = Stylist.all()
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  @clients = Client.all()
+  erb :update_stylist_form
+end
+patch '/stylists/:id/update' do
+  @stylists = Stylist.all()
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  @clients = Client.all()
+redirect to '/stylists'
+end
+
+get '/client/update' do
+  @clients = Client.all()
+  @stylists = Stylist.all()
+  erb :edit_client
+end
+patch '/client/update' do
+  @clients = Client.all()
+  @stylists = Stylist.all()
+  erb :edit_client
+end

@@ -8,9 +8,28 @@
     <li><label for="new_client_contact">Phone OR Email:</label>
     <input id="new_client_contact" name="new_client_contact" type="text"></li>
     <li><label for="new_client_stylist_id">Stylist:</label>
-    <input id="new_client_stylist_id" name="new_client_stylist_id" type="number"></li>
+
+        <% if @stylists.any?() %>
+          <select name="new_client_stylist_id" id="new_client_stylist_id">
+            <% @stylists.each() do |stylist| %>
+              <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
+            <% end %>
+          </select>
+        <% else %>
+          <h4>You have no Stylists! <em>Hire someone!</em></h4>
+        <% end %>
+
+  </li>
   </ul>
   <p>
   <button type="submit" class="btn-lg btn-warning">Add Client</button>
   </p>
 </form>
+
+<div>
+  <ul>
+    <li><a class="btn btn-med btn-success" href="/stylists">Back to All Stylists</a></li>
+    <li><a class="btn btn-lg btn-info" href="/">Back to Main</a>
+</li>
+  </ul>
+</div>
