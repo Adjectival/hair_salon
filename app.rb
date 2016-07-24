@@ -40,7 +40,9 @@ end
 
 get '/clients' do
   @clients = Client.all()
+  @id_for_found_clients = params.fetch('find_by_stylist_id')
   @stylists = Stylist.all()
+  @found_clients = @stylists.find(@id_for_found_clients.to_i())
   erb :clients
 end
 

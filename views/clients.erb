@@ -1,13 +1,37 @@
-<h2>Current Clients of Your Hair Salon</h2>
-<% if @clients.any?() && @stylists.any?() %>
-  <ul>
-    <% @clients.each() do |client| %>
-      <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Current Clients of Your Hair Salon</h2>
+    <% if @clients.any?() && @stylists.any?() %>
+      <ul>
+        <% @clients.each() do |client| %>
+          <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2>You have no clients!</h2>
     <% end %>
-  </ul>
-<% else %>
-  <h2>You have no clients!</h2>
-<% end %>
+  </div>
+  <div class="col-md-6 well">
+    <h3>Look up all the Clients of</h3>
+    <% if @stylists.any?() %>
+        <select name="find_by_stylist_id">
+          <% @stylists.each() do |stylist| %>
+          <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
+          <% end %>
+        </select>
+    <% else %>
+      <strong>Please hire a stylist!</strong>
+    <% end %>
+    <% if @id_for_found_clients != nil%>
+      <ul>
+        <% @found_clients.each() do |found_client| %>
+        <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
+      </ul>
+    <% else %>
+    <% end %>
+  </div>
+</div>
+
 <p>
   <a class="btn btn-lg btn-danger" href="/clients/new">Add a New Client!</a>
 </p>
