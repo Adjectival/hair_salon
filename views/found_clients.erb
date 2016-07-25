@@ -1,0 +1,13 @@
+<% if @found_clients.any? %>
+  <ul>
+    <% @found_clients.each() do |client| %>
+    <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>This stylist has no clients yet.</h3>
+<% end %>
+
+<div>
+    <a class="btn btn-lg btn-primary" href="/stylists">Manage Stylists</a>
+</div>

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h2>Current Clients of Your Hair Salon</h2>
     <% if @clients.any?() && @stylists.any?() %>
       <ul>
@@ -11,10 +11,11 @@
       <h2>You have no clients!</h2>
     <% end %>
   </div>
-  <div class="col-md-6 well">
+  <div class="col-md-8">
+    <form action="/find_clients_by_stylist" method="post">
     <h3>Look up all the Clients of</h3>
     <% if @stylists.any?() %>
-        <select name="find_by_stylist_id">
+        <select class="well" name="find_by_stylist_id">
           <% @stylists.each() do |stylist| %>
           <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
           <% end %>
@@ -22,13 +23,9 @@
     <% else %>
       <strong>Please hire a stylist!</strong>
     <% end %>
-    <% if @id_for_found_clients != nil%>
-      <ul>
-        <% @found_clients.each() do |found_client| %>
-        <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
-      </ul>
-    <% else %>
-    <% end %>
+    <button type="submit" class="btn btn-med btn-info">Find clients</button>
+  </form>
+
   </div>
 </div>
 
@@ -36,5 +33,5 @@
   <a class="btn btn-lg btn-danger" href="/clients/new">Add a New Client!</a>
 </p>
 <div>
-  <a class="btn btn-lg btn-info" href="/">Back to Main</a>
+  <a class="btn btn-lg btn-primary" href="/">Back to Main</a>
 </div>
