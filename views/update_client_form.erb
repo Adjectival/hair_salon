@@ -1,6 +1,6 @@
   <h1>Update Information for <%= @client.name() %></h1>
 
-  <form action="/clients/<%= @client.id() %>/edit" method="post" class="well">
+  <form action="/clients/<%= @client.id() %>" method="post" class="well">
     <input name="_method" type="hidden" value="patch">
     <ul>
       <li>

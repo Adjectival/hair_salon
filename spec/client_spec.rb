@@ -7,7 +7,7 @@ describe Client do
       test_client1.save()
       test_client2 = Client.new({:name => 'Harv Marvey', :contact => '7215033355', :stylist_id => 1})
       test_client2.save()
-      expect(Client.all()).to(eq([test_client1,test_client2]))
+      expect(Client.all()).to(eq([test_client1, test_client2]))
     end
   end
 

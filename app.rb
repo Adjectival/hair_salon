@@ -56,7 +56,7 @@ get '/clients/new' do
   erb :new_client_form
 end
 
-post '/clients/new' do
+post '/clients' do
   name = params.fetch('new_client_name')
   contact = params.fetch('new_client_contact')
   stylist_id = params.fetch('new_client_stylist_id')
@@ -86,7 +86,7 @@ get '/stylists/:id/edit' do
   erb :update_stylist_form
 end
 
-patch '/stylists/:id/edit' do
+patch '/stylists/:id' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
   name = params.fetch('name')
@@ -101,7 +101,7 @@ get '/clients/:id/edit' do
   erb :update_client_form
 end
 
-patch '/clients/:id/edit' do
+patch '/clients/:id' do
   @client = Client.find(params.fetch('id').to_i())
   @stylist = Stylist.find(params.fetch('id').to_i())
   name = params.fetch('name')

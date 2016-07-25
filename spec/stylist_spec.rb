@@ -80,13 +80,11 @@ describe Stylist do
     it "returns the clients of a stylist" do
       test_stylist = Stylist.new({:name => "Phil Erup", :contact => "embarrasing_email@yahoo.com", :id => nil})
       test_stylist.save()
-      test_client1 = Client.new({:name => "Grace Hopper", :id => nil, :stylist_id => stylist.id()})
+      test_client1 = Client.new({:name => "Grace Hopper", :contact => "7772420101", :id => nil, :stylist_id => test_stylist.id()})
       test_client1.save()
-      test_client2 = Client.new({:name => "Ada Lovelace", :id => nil, :stylist_id => stylist.id()})
+      test_client2 = Client.new({:name => "Ada Lovelace", :contact => "8089998989", :id => nil, :stylist_id => test_stylist.id()})
       test_client2.save()
-      test_client1.update({:stylist_id => stylist.id()})
-      test_client2.update({:stylist_id => stylist.id()})
-      expect(stylist.clients()).to(eq([test_client1, test_client2]))
+      expect(test_stylist.clients()).to(eq([test_client1, test_client2]))
     end
   end
 

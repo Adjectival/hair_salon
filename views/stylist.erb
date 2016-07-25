@@ -1,13 +1,26 @@
-<h1><%= @stylist.name() %></h1>
+<div>
+  <h1><%= @stylist.name() %></h1>
 
   <ul>
     <li>ID# <%= @stylist.id() %></li>
     <li>Name: <%= @stylist.name() %></li>
     <li>Contact info: <%= @stylist.contact() %></li>
   </ul>
+  <hr>
+  <% if @stylist.clients.any?() %>
+  <h2>Clients</h2>
+    <ul>
+      <% @stylist.clients.each() do |client| %>
+        <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2>You have no clients!</h2>
+  <% end %>
 
+</div>
 <div>
-  <form action="/stylists/<%= @stylist.id() %>/update" method="patch">
+  <form action="/stylists/<%= @stylist.id() %>" method="patch">
     <input type="hidden" name="_method" value="update">
     <button type="submit" id="update" class="btn-lg btn btn-info">Edit</button> this Stylist</h2>
     </form>
