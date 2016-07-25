@@ -5,7 +5,7 @@ also_reload 'lib/**/*.rb'
 require './lib/stylist'
 require './lib/client'
 require 'pry'
-DB = PG.connect({:dbname => 'hair_salon_test'})
+DB = PG.connect({:dbname => 'hair_salon'})
 
 get '/' do
   erb :index
@@ -80,13 +80,13 @@ delete '/clients/:id' do
   redirect to '/clients'
 end
 
-get '/stylists/:id/update' do
+get '/stylists/:id/edit' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
   erb :update_stylist_form
 end
 
-patch '/stylists/:id/update' do
+patch '/stylists/:id/edit' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
   name = params.fetch('name')
@@ -97,6 +97,7 @@ end
 
 get '/clients/:id/edit' do
   @client = Client.find(params.fetch('id').to_i())
+  @stylists = Stylist.all()
   erb :update_client_form
 end
 

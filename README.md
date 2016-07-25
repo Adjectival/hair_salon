@@ -16,9 +16,10 @@ In Terminal, run Ruby's bundler:
 bundle
 ```
 
-Then open your SQL SERVER and:
+Then open your postgres server and:
 ```
 CREATE DATABASE hair_salon;
+\c hair_salon;
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, contact varchar);
 CREATE TABLE clients (id serial PRIMARY KEY, name varchar, contact varchar, stylist_id int);
 ```
