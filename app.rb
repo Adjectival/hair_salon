@@ -24,6 +24,7 @@ end
 get '/stylists/new' do
   erb :new_stylist_form
 end
+
 post '/stylists/new' do
   name = params.fetch('new_stylist_name')
   contact = params.fetch('new_stylist_contact')
@@ -37,6 +38,7 @@ get '/stylists/:id' do
   @stylist = Stylist.find(params.fetch('id').to_i())
   erb :stylist
 end
+
 delete '/stylists/:id' do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch('id').to_i())
@@ -56,7 +58,7 @@ get '/clients/new' do
   erb :new_client_form
 end
 
-post '/clients' do
+post '/clients/new' do
   name = params.fetch('new_client_name')
   contact = params.fetch('new_client_contact')
   stylist_id = params.fetch('new_client_stylist_id')

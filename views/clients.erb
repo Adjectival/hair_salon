@@ -4,7 +4,7 @@
     <% if @clients.any?() && @stylists.any?() %>
       <ul>
         <% @clients.each() do |client| %>
-          <li><a href="/clients/<%= client.id() %>"><strong><%= client.name() %></strong> contact: <em><%= client.contact() %></em> || styled by <%= client.stylist_id() %></a></li>
+          <li><h3><a href="/clients/<%= client.id() %>"><%= client.name() %> </h3><br>contact: <em><%= client.contact() %></em></a></li>
         <% end %>
       </ul>
     <% else %>
@@ -23,15 +23,15 @@
     <% else %>
       <strong>Please hire a stylist!</strong>
     <% end %>
-    <button type="submit" class="btn btn-med btn-info">Find clients</button>
+    <button type="submit" class="btn btn-med btn-success">Find clients</button>
   </form>
 
   </div>
 </div>
 
 <p>
-  <a class="btn btn-lg btn-danger" href="/clients/new">Add a New Client!</a>
+  <a class="btn btn-lg btn-success" href="/clients/new">Add a New Client!</a>
 </p>
 <div>
-  <a class="btn btn-lg btn-primary" href="/">Back to Main</a>
+  <a class="btn btn-lg btn-info" href="/">Back to Main</a>
 </div>

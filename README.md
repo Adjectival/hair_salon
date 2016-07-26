@@ -6,7 +6,7 @@ _an Epicodus Project, July 2016_
 Website built to help a small hair salon manage database of clients and stylists.
 
 ## Setup
-Download this repository.
+Download this repository. From command line / Terminal:
 ```
 git clone https://github.com/Adjectival/hair_salon
 ```
