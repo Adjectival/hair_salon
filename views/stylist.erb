@@ -20,14 +20,11 @@
 
 </div>
 <div>
-  <form action="/stylists/<%= @stylist.id() %>" method="patch">
-    <input type="hidden" name="_method" value="update">
-    <button type="submit" id="update" class="btn-lg btn btn-info">Edit</button> this Stylist</h2>
+  <form action="/stylists/<%= @stylist.id() %>/edit" method="get">
+    <button type="submit" class="btn-lg btn-info">Edit</button> this Stylist</h2>
     </form>
 </div>
 
 <div>
-  <ul>
-    <li><a class="btn btn-med btn-success" href="/stylists">Back to All Stylists</a></li>
-  </ul>
+  <a class="btn btn-med btn-success" href="/stylists">Back to All Stylists</a>
 </div>

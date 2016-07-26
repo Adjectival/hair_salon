@@ -8,9 +8,8 @@
   </ul>
 
   <div>
-    <form action="/clients/<%= @client.id() %>" method="patch">
-      <input type="hidden" name="_method" value="update">
-      <button type="submit" id="update" class="btn-lg btn btn-info">Edit</button> this Client's info or Stylist</h2>
+    <form action="/clients/<%= @client.id() %>/edit" method="get">
+      <button type="submit" class="btn-lg btn-info">Edit</button> this Client's info or Stylist</h2>
       </form>
   </div>
 
